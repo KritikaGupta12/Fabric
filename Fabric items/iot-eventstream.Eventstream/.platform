@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Eventstream",
+    "displayName": "iot-eventstream"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "58892751-cea5-a43b-493e-06b12d50b5ea"
+  }
+}

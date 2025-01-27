@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Crude Oil Prices - Report"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "60a1f90c-6eca-abc6-4d2a-d97c45cd943c"
+  }
+}

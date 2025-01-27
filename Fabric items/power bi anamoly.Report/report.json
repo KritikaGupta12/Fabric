@@ -1,0 +1,181 @@
+{
+  "config": "{\"version\":\"5.40\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY22SU11\",\"version\":\"5.41\",\"type\":2},\"customTheme\":{\"name\":\"AccessibleDefault\",\"version\":\"5.41\",\"type\":2}},\"activeSectionIndex\":1,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}],\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "AccessibleDefault",
+            "path": "BuiltInThemes/AccessibleDefault.json",
+            "type": 201
+          },
+          {
+            "name": "CY22SU11",
+            "path": "BaseThemes/CY22SU11.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    },
+    {
+      "resourcePackage": {
+        "items": [
+          {
+            "name": "Insight_Logo_Med16002103500552338.jpg",
+            "path": "Insight_Logo_Med16002103500552338.jpg",
+            "type": 100
+          }
+        ],
+        "name": "RegisteredResources",
+        "type": 1
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{\"objects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.1}}}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"11D\"}}}}}]}}",
+      "displayName": "Page 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "ReportSection486c8deb9a6003093611",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"02ce4fa661866216005b\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":12.715231788079471,\"z\":6000,\"width\":195.49668874172187,\"height\":87.41721854304636}}],\"singleVisual\":{\"visualType\":\"image\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"imageUrl\":{\"expr\":{\"ResourcePackageItem\":{\"PackageName\":\"RegisteredResources\",\"PackageType\":1,\"ItemName\":\"Insight_Logo_Med16002103500552338.jpg\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 87.42,
+          "width": 195.50,
+          "x": 0.00,
+          "y": 12.72,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"156711732a0051767a48\",\"layouts\":[{\"id\":0,\"position\":{\"x\":12.715231788079471,\"y\":400.5298013245033,\"z\":4000,\"width\":651.6556291390729,\"height\":301.9867549668874}}],\"singleVisual\":{\"visualType\":\"clusteredBarChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Anamoly.EventProcessedDate\",\"active\":true}],\"Y\":[{\"queryRef\":\"CountNonNull(Anamoly.Anamoly Hflag)\"}],\"Series\":[{\"queryRef\":\"Anamoly.Anamoly Hflag\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"a\",\"Entity\":\"Anamoly\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"EventProcessedDate\"},\"Name\":\"Anamoly.EventProcessedDate\",\"NativeReferenceName\":\"Processed Date\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"Anamoly Hflag\"}},\"Function\":5},\"Name\":\"CountNonNull(Anamoly.Anamoly Hflag)\",\"NativeReferenceName\":\"Count of Anomaly\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"Anamoly Hflag\"},\"Name\":\"Anamoly.Anamoly Hflag\",\"NativeReferenceName\":\"Anamoly_flag\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"EventProcessedDate\"}}}]},\"columnProperties\":{\"CountNonNull(Anamoly.Anamoly Hflag)\":{\"displayName\":\"Count of Anomaly\"},\"Anamoly.Anamoly Hflag\":{\"displayName\":\"Anamoly_flag\"},\"Anamoly.EventProcessedDate\":{\"displayName\":\"Processed Date\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"dataPoint\":[{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#b3b3b3'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Anamoly\"}},\"Property\":\"Anamoly Hflag\"}},\"Right\":{\"Literal\":{\"Value\":\"'0'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#ad3480'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Anamoly\"}},\"Property\":\"Anamoly Hflag\"}},\"Right\":{\"Literal\":{\"Value\":\"'1'\"}}}}}]}}],\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"labelPosition\":{\"expr\":{\"Literal\":{\"Value\":\"'OutsideEnd'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"12D\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}},\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Count of Anomaly in Humidity by ProcessedDate '\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 301.99,
+          "width": 651.66,
+          "x": 12.72,
+          "y": 400.53,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"30e12d75c9c3bde84868\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1074.4370860927152,\"y\":17.483443708609272,\"z\":7000,\"width\":205.03311258278146,\"height\":77.88079470198676}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Anamoly.EventProcessedDate\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"a\",\"Entity\":\"Anamoly\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"EventProcessedDate\"},\"Name\":\"Anamoly.EventProcessedDate\",\"NativeReferenceName\":\"EventProcessedDate\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"EventProcessedDate\"}}}]},\"syncGroup\":{\"groupName\":\"EventProcessedDate\",\"fieldChanges\":true,\"filterChanges\":true},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"header\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"items\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#ad3480'\"}}}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Processed Date'\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}},\"background\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#ad3480'\"}}}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}]}}}",
+          "filters": "[]",
+          "height": 77.88,
+          "width": 205.03,
+          "x": 1074.44,
+          "y": 17.48,
+          "z": 7000.00
+        },
+        {
+          "config": "{\"name\":\"5c68803e5dcb9e834d9d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":12.715231788079471,\"y\":116.02649006622516,\"z\":0,\"width\":316.2913907284768,\"height\":267.0198675496689}}],\"singleVisual\":{\"visualType\":\"pieChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Count(Anamoly.Anamoly Tflag)\"}],\"Category\":[{\"queryRef\":\"Anamoly.Anamoly Tflag\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"a\",\"Entity\":\"Anamoly\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"Anamoly Tflag\"}},\"Function\":5},\"Name\":\"Count(Anamoly.Anamoly Tflag)\",\"NativeReferenceName\":\"Count of Anamoly Tflag\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"Anamoly Tflag\"},\"Name\":\"Anamoly.Anamoly Tflag\",\"NativeReferenceName\":\"Anomaly_flag\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"Anamoly Tflag\"}},\"Function\":5}}}]},\"columnProperties\":{\"Anamoly.Anamoly Tflag\":{\"displayName\":\"Anomaly_flag\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"dataPoint\":[{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#b3b3b3'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Anamoly\"}},\"Property\":\"Anamoly Tflag\"}},\"Right\":{\"Literal\":{\"Value\":\"'0'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#ad3480'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Anamoly\"}},\"Property\":\"Anamoly Tflag\"}},\"Right\":{\"Literal\":{\"Value\":\"'1'\"}}}}}]}}],\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"12D\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Count of Anomaly in Temperature'\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}},\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 267.02,
+          "width": 316.29,
+          "x": 12.72,
+          "y": 116.03,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"7f50c6e67ad0ee9a228b\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":12.9438202247191,\"z\":3000,\"width\":1279.8202247191011,\"height\":87.37078651685393}}],\"singleVisual\":{\"visualType\":\"actionButton\",\"drillFilterOtherVisuals\":true,\"objects\":{\"icon\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'blank'\"}}}},\"selector\":{\"id\":\"default\"}}],\"text\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}},{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'IOT Data Dashboard'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"38D\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}],\"fill\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}},{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#ad3480'\"}}}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"15D\"}}}},\"selector\":{\"id\":\"default\"}}],\"outline\":[{\"properties\":{\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.1}}}}},\"weight\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}}},\"selector\":{\"id\":\"default\"}}]}}}",
+          "filters": "[]",
+          "height": 87.37,
+          "width": 1279.82,
+          "x": 0.00,
+          "y": 12.94,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"878a7c942ed779721e40\",\"layouts\":[{\"id\":0,\"position\":{\"x\":685.0331125827814,\"y\":400.5298013245033,\"z\":2000,\"width\":580.1324503311258,\"height\":301.9867549668874}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"CountNonNull(Anamoly.Key)\"},{\"queryRef\":\"Anamoly.EventProcessedDate\"},{\"queryRef\":\"Anamoly.EventProcessedTime\"},{\"queryRef\":\"Sum(Anamoly.humidity)\"},{\"queryRef\":\"Anamoly.Anamoly Hflag\"},{\"queryRef\":\"Sum(Anamoly.temperature)\"},{\"queryRef\":\"Anamoly.Anamoly Tflag\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"a\",\"Entity\":\"Anamoly\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"Key\"},\"Name\":\"CountNonNull(Anamoly.Key)\",\"NativeReferenceName\":\"Count of Key1\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"temperature\"},\"Name\":\"Sum(Anamoly.temperature)\",\"NativeReferenceName\":\"Temperature\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"EventProcessedTime\"},\"Name\":\"Anamoly.EventProcessedTime\",\"NativeReferenceName\":\"Processed Time\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"Anamoly Tflag\"},\"Name\":\"Anamoly.Anamoly Tflag\",\"NativeReferenceName\":\"Anomaly_Temp\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"Anamoly Hflag\"},\"Name\":\"Anamoly.Anamoly Hflag\",\"NativeReferenceName\":\"Anomaly_Humidity\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"humidity\"},\"Name\":\"Sum(Anamoly.humidity)\",\"NativeReferenceName\":\"Humidity\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"EventProcessedDate\"},\"Name\":\"Anamoly.EventProcessedDate\",\"NativeReferenceName\":\"Processed Date\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"EventProcessedDate\"}}}]},\"columnProperties\":{\"Anamoly.EventProcessedDate\":{\"displayName\":\"Processed Date\"},\"Anamoly.EventProcessedTime\":{\"displayName\":\"Processed Time\"},\"Anamoly.Anamoly Hflag\":{\"displayName\":\"Anomaly_Humidity\"},\"Anamoly.Anamoly Tflag\":{\"displayName\":\"Anomaly_Temp\"},\"Sum(Anamoly.humidity)\":{\"displayName\":\"Humidity\"},\"Sum(Anamoly.temperature)\":{\"displayName\":\"Temperature\"}},\"drillFilterOtherVisuals\":true,\"objects\":{\"values\":[{\"properties\":{\"icon\":{\"kind\":\"Icon\",\"layout\":{\"expr\":{\"Literal\":{\"Value\":\"'Before'\"}}},\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}},\"value\":{\"expr\":{\"Conditional\":{\"Cases\":[{\"Condition\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Anamoly\"}},\"Property\":\"Anamoly Tflag\"}},\"Function\":3}},\"Right\":{\"Literal\":{\"Value\":\"'0'\"}}},\"Annotations\":{\"PowerBI.SQExprEvaluationKind\":1,\"PowerBI.SQExprTextOperatorOption\":2}},\"Value\":{\"Literal\":{\"Value\":\"'CircleHigh'\"}}},{\"Condition\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Anamoly\"}},\"Property\":\"Anamoly Tflag\"}},\"Function\":3}},\"Right\":{\"Literal\":{\"Value\":\"'1'\"}}},\"Annotations\":{\"PowerBI.SQExprEvaluationKind\":1,\"PowerBI.SQExprTextOperatorOption\":2}},\"Value\":{\"Literal\":{\"Value\":\"'SignLow'\"}}}]}}}}},\"selector\":{\"data\":[{\"dataViewWildcard\":{\"matchingOption\":1}}],\"metadata\":\"Anamoly.Anamoly Tflag\"}},{\"properties\":{\"icon\":{\"kind\":\"Icon\",\"layout\":{\"expr\":{\"Literal\":{\"Value\":\"'Before'\"}}},\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}},\"value\":{\"expr\":{\"Conditional\":{\"Cases\":[{\"Condition\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Anamoly\"}},\"Property\":\"Anamoly Hflag\"}},\"Function\":3}},\"Right\":{\"Literal\":{\"Value\":\"'0'\"}}},\"Annotations\":{\"PowerBI.SQExprEvaluationKind\":1,\"PowerBI.SQExprTextOperatorOption\":2}},\"Value\":{\"Literal\":{\"Value\":\"'CircleHigh'\"}}},{\"Condition\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Anamoly\"}},\"Property\":\"Anamoly Hflag\"}},\"Function\":3}},\"Right\":{\"Literal\":{\"Value\":\"'1'\"}}},\"Annotations\":{\"PowerBI.SQExprEvaluationKind\":1,\"PowerBI.SQExprTextOperatorOption\":2}},\"Value\":{\"Literal\":{\"Value\":\"'SignLow'\"}}}]}}}}},\"selector\":{\"data\":[{\"dataViewWildcard\":{\"matchingOption\":1}}],\"metadata\":\"Anamoly.Anamoly Hflag\"}}],\"total\":[{\"properties\":{\"totals\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"columnHeaders\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}},\"backColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#ad3480'\"}}}}},\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'\"}}}}}],\"columnWidth\":[{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"75.9271624226954D\"}}}},\"selector\":{\"metadata\":\"Anamoly.Anamoly Tflag\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"85.58940313144205D\"}}}},\"selector\":{\"metadata\":\"Sum(Anamoly.temperature)\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"70.94701565721024D\"}}}},\"selector\":{\"metadata\":\"Sum(Anamoly.humidity)\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"107.74835615981131D\"}}}},\"selector\":{\"metadata\":\"Anamoly.EventProcessedDate\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"89.67551858250671D\"}}}},\"selector\":{\"metadata\":\"Anamoly.EventProcessedTime\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"96.23179060567385D\"}}}},\"selector\":{\"metadata\":\"Anamoly.Anamoly Hflag\"}}],\"columnFormatting\":[{\"properties\":{\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Center'\"}}}},\"selector\":{\"metadata\":\"CountNonNull(Anamoly.Key)\"}},{\"properties\":{\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Center'\"}}}},\"selector\":{\"metadata\":\"Anamoly.EventProcessedDate\"}},{\"properties\":{\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Center'\"}}}},\"selector\":{\"metadata\":\"Anamoly.EventProcessedTime\"}},{\"properties\":{\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Center'\"}}}},\"selector\":{\"metadata\":\"Sum(Anamoly.humidity)\"}},{\"properties\":{\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Center'\"}}}},\"selector\":{\"metadata\":\"Anamoly.Anamoly Hflag\"}},{\"properties\":{\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Center'\"}}}},\"selector\":{\"metadata\":\"Sum(Anamoly.temperature)\"}},{\"properties\":{\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Center'\"}}}},\"selector\":{\"metadata\":\"Anamoly.Anamoly Tflag\"}}]}}}",
+          "filters": "[]",
+          "height": 301.99,
+          "width": 580.13,
+          "x": 685.03,
+          "y": 400.53,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"bb92d49d9e8333c39c17\",\"layouts\":[{\"id\":0,\"position\":{\"x\":346.49006622516555,\"y\":116.02649006622516,\"z\":1000,\"width\":317.88079470198676,\"height\":267.0198675496689}}],\"singleVisual\":{\"visualType\":\"pieChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Anamoly.Anamoly Hflag\",\"active\":true}],\"Y\":[{\"queryRef\":\"CountNonNull(Anamoly.Anamoly Hflag)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"a\",\"Entity\":\"Anamoly\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"Anamoly Hflag\"},\"Name\":\"Anamoly.Anamoly Hflag\",\"NativeReferenceName\":\"Anomaly_flag\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"Anamoly Hflag\"}},\"Function\":5},\"Name\":\"CountNonNull(Anamoly.Anamoly Hflag)\",\"NativeReferenceName\":\"Count of Anamoly Hflag\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"Anamoly Hflag\"}},\"Function\":5}}}]},\"columnProperties\":{\"Anamoly.Anamoly Hflag\":{\"displayName\":\"Anomaly_flag\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"dataPoint\":[{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#b3b3b3'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Anamoly\"}},\"Property\":\"Anamoly Hflag\"}},\"Right\":{\"Literal\":{\"Value\":\"'0'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#ad3480'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Anamoly\"}},\"Property\":\"Anamoly Hflag\"}},\"Right\":{\"Literal\":{\"Value\":\"'1'\"}}}}}]}}],\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"12D\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Count of Anomaly in Humidity'\"}}},\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 267.02,
+          "width": 317.88,
+          "x": 346.49,
+          "y": 116.03,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"d822cc2ec7a188211d1e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":685.0331125827814,\"y\":116.02649006622516,\"z\":5000,\"width\":580.1324503311258,\"height\":267.0198675496689}}],\"singleVisual\":{\"visualType\":\"clusteredBarChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Anamoly.EventProcessedDate\",\"active\":true}],\"Y\":[{\"queryRef\":\"CountNonNull(Anamoly.Anamoly Tflag)\"}],\"Series\":[{\"queryRef\":\"Anamoly.Anamoly Tflag\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"a\",\"Entity\":\"Anamoly\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"EventProcessedDate\"},\"Name\":\"Anamoly.EventProcessedDate\",\"NativeReferenceName\":\"Processed Date\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"Anamoly Tflag\"}},\"Function\":5},\"Name\":\"CountNonNull(Anamoly.Anamoly Tflag)\",\"NativeReferenceName\":\"Count of Anomaly\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"Anamoly Tflag\"},\"Name\":\"Anamoly.Anamoly Tflag\",\"NativeReferenceName\":\"Anamoly_flag\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"EventProcessedDate\"}}}]},\"columnProperties\":{\"CountNonNull(Anamoly.Anamoly Tflag)\":{\"displayName\":\"Count of Anomaly\"},\"Anamoly.Anamoly Tflag\":{\"displayName\":\"Anamoly_flag\"},\"Anamoly.EventProcessedDate\":{\"displayName\":\"Processed Date\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"dataPoint\":[{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":6,\"Percent\":-0.25}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Anamoly\"}},\"Property\":\"Anamoly Tflag\"}},\"Right\":{\"Literal\":{\"Value\":\"'1'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.3}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Anamoly\"}},\"Property\":\"Anamoly Tflag\"}},\"Right\":{\"Literal\":{\"Value\":\"'0'\"}}}}}]}}],\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"labelPosition\":{\"expr\":{\"Literal\":{\"Value\":\"'OutsideEnd'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"12D\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Count of Anomaly in Temperature by ProcessedDate '\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}},\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 267.02,
+          "width": 580.13,
+          "x": 685.03,
+          "y": 116.03,
+          "z": 5000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{\"objects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.1}}}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"11D\"}}}}}]}}",
+      "displayName": "Page 2",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "ReportSection9eb0de48079d33a4c3a6",
+      "ordinal": 1,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"1911e7a0b242266c0dca\",\"layouts\":[{\"id\":0,\"position\":{\"x\":14.304635761589404,\"y\":112.8476821192053,\"z\":1000,\"width\":1250.8609271523178,\"height\":281.3245033112583}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Anamoly.EventProcessedTime\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(Anamoly.temperature)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"a\",\"Entity\":\"Anamoly\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"EventProcessedTime\"},\"Name\":\"Anamoly.EventProcessedTime\",\"NativeReferenceName\":\"Processed Time\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"temperature\"}},\"Function\":1},\"Name\":\"Sum(Anamoly.temperature)\",\"NativeReferenceName\":\"EventProcessedTime1\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"EventProcessedTime\"}}}]},\"columnProperties\":{\"Anamoly.EventProcessedTime\":{\"displayName\":\"Processed Time\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"dataPoint\":[{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#18D012'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Anamoly\"}},\"Property\":\"Anamoly Tflag\"}},\"Right\":{\"Literal\":{\"Value\":\"'0'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":9,\"Percent\":0}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Anamoly\"}},\"Property\":\"Anamoly Tflag\"}},\"Right\":{\"Literal\":{\"Value\":\"'1'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#ad3480'\"}}}}}},\"selector\":{\"metadata\":\"Sum(Anamoly.temperature)\"}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Average of temperature by Processed Time'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 281.32,
+          "width": 1250.86,
+          "x": 14.30,
+          "y": 112.85,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"37ab543ed056668bc010\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1074.4370860927152,\"y\":17.483443708609272,\"z\":4000,\"width\":205.03311258278146,\"height\":77.88079470198676}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Anamoly.EventProcessedDate\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"a\",\"Entity\":\"Anamoly\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"EventProcessedDate\"},\"Name\":\"Anamoly.EventProcessedDate\",\"NativeReferenceName\":\"EventProcessedDate\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"EventProcessedDate\"}}}]},\"syncGroup\":{\"groupName\":\"EventProcessedDate\",\"fieldChanges\":true,\"filterChanges\":true},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"header\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"items\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#ad3480'\"}}}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Processed Date'\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}},\"background\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#ad3480'\"}}}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}]}}}",
+          "filters": "[]",
+          "height": 77.88,
+          "width": 205.03,
+          "x": 1074.44,
+          "y": 17.48,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"3e13f1ee3b4d15b0bb14\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":12.715231788079471,\"z\":3000,\"width\":200.26490066225165,\"height\":87.41721854304636}}],\"singleVisual\":{\"visualType\":\"image\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"imageUrl\":{\"expr\":{\"ResourcePackageItem\":{\"PackageName\":\"RegisteredResources\",\"PackageType\":1,\"ItemName\":\"Insight_Logo_Med16002103500552338.jpg\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 87.42,
+          "width": 200.26,
+          "x": 0.00,
+          "y": 12.72,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"783cdca042abcc65a195\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":12.9438202247191,\"z\":0,\"width\":1279.8202247191011,\"height\":87.37078651685393}}],\"singleVisual\":{\"visualType\":\"actionButton\",\"drillFilterOtherVisuals\":true,\"objects\":{\"icon\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'blank'\"}}}},\"selector\":{\"id\":\"default\"}}],\"text\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}},{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'IOT Data Dashboard'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"38D\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}],\"fill\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}},{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#ad3480'\"}}}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"15D\"}}}},\"selector\":{\"id\":\"default\"}}],\"outline\":[{\"properties\":{\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.1}}}}},\"weight\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}}},\"selector\":{\"id\":\"default\"}}]}}}",
+          "filters": "[]",
+          "height": 87.37,
+          "width": 1279.82,
+          "x": 0.00,
+          "y": 12.94,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"a8c841686daab1e2ed3b\",\"layouts\":[{\"id\":0,\"position\":{\"x\":12.715231788079471,\"y\":414.83443708609275,\"z\":2000,\"width\":1250.8609271523178,\"height\":290.8609271523179}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Anamoly.EventProcessedTime\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(Anamoly.humidity)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"a\",\"Entity\":\"Anamoly\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"EventProcessedTime\"},\"Name\":\"Anamoly.EventProcessedTime\",\"NativeReferenceName\":\"Processed Time\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"humidity\"}},\"Function\":1},\"Name\":\"Sum(Anamoly.humidity)\",\"NativeReferenceName\":\"EventProcessedTime1\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"EventProcessedTime\"}}}]},\"columnProperties\":{\"Anamoly.EventProcessedTime\":{\"displayName\":\"Processed Time\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"dataPoint\":[{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#18D012'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Anamoly\"}},\"Property\":\"Anamoly Tflag\"}},\"Right\":{\"Literal\":{\"Value\":\"'0'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":9,\"Percent\":0}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Anamoly\"}},\"Property\":\"Anamoly Tflag\"}},\"Right\":{\"Literal\":{\"Value\":\"'1'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#ad3480'\"}}}}}},\"selector\":{\"metadata\":\"Sum(Anamoly.humidity)\"}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}},\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Average of humidity by Processed Time'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 290.86,
+          "width": 1250.86,
+          "x": 12.72,
+          "y": 414.83,
+          "z": 2000.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ],
+  "theme": "AccessibleDefault"
+}
