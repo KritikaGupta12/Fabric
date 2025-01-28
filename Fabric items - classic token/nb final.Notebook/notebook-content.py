@@ -41,9 +41,6 @@ spark.conf.set("spark.databricks.delta.schema.autoMerge.enabled","true")
 
 # CELL ********************
 
-# file1 = "Files/20211001_gpx103-sdcgpx1852-47b994e1_2296_4d13_8b9e_e5ef5ed3449e-X1.12-9510015292_20211001_Rödvattenmyran.xml" 
-# file2 = "Files/20211004_gpx103-sdcgpx1852-6c631266_d606_4bf2_b4b0_01071544d00a-X1.12-9510015292_20211004_Rödvattenmyran.xml"
-
 apif1 = "/lakehouse/default/Files/20211001_gpx103-sdcgpx1852-47b994e1_2296_4d13_8b9e_e5ef5ed3449e-X1.12-9510015292_20211001_Rödvattenmyran.xml"
 apif2 = "/lakehouse/default/Files/20211004_gpx103-sdcgpx1852-6c631266_d606_4bf2_b4b0_01071544d00a-X1.12-9510015292_20211004_Rödvattenmyran.xml"
 
@@ -51,7 +48,6 @@ element_list = ['Stem', 'ObjectDefinition', 'ProductDefinition', 'SpeciesGroupDe
 
 data = []
 schema = 'bronze'
-
 
 # METADATA ********************
 
@@ -62,8 +58,7 @@ schema = 'bronze'
 
 # CELL ********************
 
-# removing namespace
-
+# removing namespace from xml
 def remove_namespace() :
     # Iterate through all XML elements
     for elem in root.getiterator():
@@ -78,15 +73,8 @@ def remove_namespace() :
     # Remove unused namespace declarations
     ET.cleanup_namespaces(root)
 
-# METADATA ********************
 
-# META {
-# META   "language": "python",
-# META   "language_group": "synapse_pyspark"
-# META }
-
-# CELL ********************
-
+# fetching MachineKey
 def fetch_machine_key() :
     for i in range(len(root[1])) :
         if root[1][i].tag == 'MachineKey' :
@@ -103,7 +91,6 @@ def fetch_machine_key() :
 # CELL ********************
 
 # recursive function to parse the xml tree
-
 def parse_element(element, item) :
 
     # If the element has no children, add its text to the dictionary. ( item = {}, element = root[][] )
@@ -117,64 +104,16 @@ def parse_element(element, item) :
             parse_element (child, item)
 
 
-# METADATA ********************
-
-# META {
-# META   "language": "python",
-# META   "language_group": "synapse_pyspark"
-# META }
-
-# CELL ********************
-
-# Recursive function new to parse XML
-def parse_element(element, data_list, parent_tag=""):
-    item = {}
-    for child in element:
-        tag = f"{parent_tag}.{child.tag}" if parent_tag else child.tag
-
-        # If the child has no children, add its text
-        if len(list(child)) == 0:
-            item[tag] = child.text
-            
-            # Add attributes if present
-            for attr_key, attr_value in child.attrib.items():
-                item[f"{tag}_{attr_key}"] = attr_value
-        else:
-            # Recurse into child
-            parse_element(child, data_list, tag)
-
-    if item:  # Append the parsed data for this level
-        data_list.append(item)
-
-# METADATA ********************
-
-# META {
-# META   "language": "python",
-# META   "language_group": "synapse_pyspark"
-# META }
-
-# CELL ********************
-
-# creating data list
-
+# creating list of dicts
 def data_list(x) :
     for child in root[1][x]:
-        item = {}
-        # item = MultiDict()
+        # item = {}
+        item = MultiDict()
         parse_element(child, item)
         data.append(item)
 
-# METADATA ********************
 
-# META {
-# META   "language": "python",
-# META   "language_group": "synapse_pyspark"
-# META }
-
-# CELL ********************
-
-# data list to dataframe
-
+# converting list of dicts to dataframe with ffill bfill (data_list to df)
 def list_to_dataframe(data):
     structured_data = []
     current_row = {}
@@ -192,8 +131,9 @@ def list_to_dataframe(data):
         structured_data.append(current_row)
 
     # Convert the structured data into a DataFrame
-    df = spark.createDataFrame(pd.DataFrame(structured_data).ffill().bfill())
+    df = spark.createDataFrame(pd.DataFrame(structured_data))#.ffill().bfill())
     return df
+
 
 # METADATA ********************
 
@@ -204,8 +144,7 @@ def list_to_dataframe(data):
 
 # CELL ********************
 
-# final table creation with MachineKey
-
+# final table creation with MachineKey column
 def create_table(index, table_name, schema_name = schema) :
     for i in index :
         data_list(i)
@@ -215,7 +154,6 @@ def create_table(index, table_name, schema_name = schema) :
         location = schema_name + '.' + table_name
         df_mk.write.format("delta").mode("append").option("mergeSchema", True).saveAsTable(location)
         data.clear()
-    
 
 # METADATA ********************
 
@@ -232,7 +170,6 @@ root = tree.getroot()
 
 # removing namespace
 remove_namespace()
-
 fetch_machine_key()
 
 # METADATA ********************
@@ -245,7 +182,6 @@ fetch_machine_key()
 # CELL ********************
 
 # creating index
-
 Stem_index = []
 ObjectDefinition_index = []
 SpeciesGroupDefinition_index = []
@@ -276,10 +212,9 @@ print(len(Stem_index), len(ObjectDefinition_index), len(SpeciesGroupDefinition_i
 
 # CELL ********************
 
-# root[1][24]
-parse_element(root[1][24], data)
-df = pd.DataFrame(data)
-display(df)
+# list of dictionaries
+data_list(24)
+print(data)
 
 # METADATA ********************
 
@@ -290,13 +225,9 @@ display(df)
 
 # CELL ********************
 
-# root[1][24][0].text
-data_list(24)
-print(data)
-
+# df = spark.createDataFrame(pd.DataFrame(data)) wrong way not showing all biomass values
 df = list_to_dataframe(data)
-display(df)
-# df_mk = df.withColumn("MachineKey", lit(fetch_machine_key()))
+df = df.withColumn("MachineKey", lit(fetch_machine_key()))
 data.clear()
 
 # METADATA ********************
@@ -308,7 +239,7 @@ data.clear()
 
 # CELL ********************
 
-display(df.select('StemKey', 'Biomass'))
+display(df.select('MachineKey', 'StemKey', 'Biomass', 'LogKey', 'LogVolume', 'CuttingReason'))
 
 # METADATA ********************
 
