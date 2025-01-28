@@ -1,0 +1,164 @@
+table Anamoly
+	lineageTag: 3ba8a30a-7223-4f94-88b5-937620fdd8c4
+
+	measure 'Average Temperature' = AVERAGE(Anamoly[temperature])
+		lineageTag: d5f7791f-2468-46a6-b299-6f9ff7794adb
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 163a8cd8-63a8-4bdd-bb76-a8e6646fd9a4
+		summarizeBy: count
+		sourceColumn: Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column messageId
+		dataType: int64
+		formatString: 0
+		lineageTag: d6d6ce0e-a80c-469e-a523-8a7153ee692a
+		summarizeBy: count
+		sourceColumn: messageId
+
+		annotation SummarizationSetBy = Automatic
+
+	column deviceId
+		dataType: string
+		lineageTag: 302c737b-57c4-4016-99ac-6abe05d90c80
+		summarizeBy: none
+		sourceColumn: deviceId
+
+		annotation SummarizationSetBy = Automatic
+
+	column temperature
+		dataType: double
+		lineageTag: 4b22f453-dad0-4dd9-affd-10727480047b
+		summarizeBy: none
+		sourceColumn: temperature
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column humidity
+		dataType: double
+		lineageTag: 3a9f790f-2c64-41a6-8acf-2cabf6795e41
+		summarizeBy: sum
+		sourceColumn: humidity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column EventProcessedUtcTime
+		dataType: string
+		lineageTag: f74273d3-616e-4bda-99d9-f55520d92267
+		summarizeBy: none
+		sourceColumn: EventProcessedUtcTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column PartitionId
+		dataType: int64
+		formatString: 0
+		lineageTag: 6a81f29b-55cf-4c22-9467-52d329fa3b03
+		summarizeBy: count
+		sourceColumn: PartitionId
+
+		annotation SummarizationSetBy = Automatic
+
+	column EventEnqueuedUtcTime
+		dataType: string
+		lineageTag: ba812379-cf9b-4f43-b8f8-49ee70baa80f
+		summarizeBy: none
+		sourceColumn: EventEnqueuedUtcTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column EventProcessedDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 6c21900d-2bab-4e4c-ba9f-bedaeacfbcf1
+		summarizeBy: none
+		sourceColumn: EventProcessedDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column EventProcessedTime
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: 47ab349d-613b-4b5d-afb4-911deebb1c89
+		summarizeBy: none
+		sourceColumn: EventProcessedTime
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column 'EventEnqueuedUtcTime - Copy.1'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: a35bd289-24a8-4a09-a105-57ea67eeb2e3
+		summarizeBy: none
+		sourceColumn: EventEnqueuedUtcTime - Copy.1
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'EventEnqueuedUtcTime - Copy.2'
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: 640f1de6-41b1-4802-b6f9-7a5484362ad8
+		summarizeBy: none
+		sourceColumn: EventEnqueuedUtcTime - Copy.2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column 'Anamoly Hflag' = IF(Anamoly[humidity] > 78.00 || Anamoly[humidity] < 61.000 , "1","0")
+		lineageTag: 867c6ad0-3b17-47fa-bb84-0fbd94c13b0e
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Anamoly Tflag' = IF(Anamoly[temperature] > 30.00 || Anamoly[temperature] < 21.00 , "1","0")
+		lineageTag: 7e9289c4-291d-4244-a9e3-061610233cb0
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Anamoly-9d91ba46-52ce-4920-a670-86d7509a9788 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("iot-synapse.sql.azuresynapse.net"),
+				    demosql = Source{[Name="demosql"]}[Data],
+				    dbo_Anamoly = demosql{[Schema="dbo",Item="Anamoly"]}[Data],
+				    #"Sorted Rows" = Table.Sort(dbo_Anamoly,{{"messageId", Order.Ascending}}),
+				    #"Rounded Off" = Table.TransformColumns(#"Sorted Rows",{{"temperature", each Number.Round(_, 3), type number}}),
+				    #"Rounded Off1" = Table.TransformColumns(#"Rounded Off",{{"humidity", each Number.Round(_, 3), type number}}),
+				    #"Duplicated Column" = Table.DuplicateColumn(#"Rounded Off1", "EventProcessedUtcTime", "EventProcessedUtcTime - Copy"),
+				    #"Split Column by Delimiter" = Table.SplitColumn(#"Duplicated Column", "EventProcessedUtcTime - Copy", Splitter.SplitTextByEachDelimiter({"T"}, QuoteStyle.Csv, false), {"EventProcessedUtcTime - Copy.1", "EventProcessedUtcTime - Copy.2"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Split Column by Delimiter",{{"EventProcessedUtcTime - Copy.1", type date}, {"EventProcessedUtcTime - Copy.2", type time}}),
+				    #"Sorted Rows1" = Table.Sort(#"Changed Type",{{"messageId", Order.Descending}}),
+				    #"Duplicated Column1" = Table.DuplicateColumn(#"Sorted Rows1", "EventEnqueuedUtcTime", "EventEnqueuedUtcTime - Copy"),
+				    #"Split Column by Delimiter1" = Table.SplitColumn(#"Duplicated Column1", "EventEnqueuedUtcTime - Copy", Splitter.SplitTextByEachDelimiter({"T"}, QuoteStyle.Csv, false), {"EventEnqueuedUtcTime - Copy.1", "EventEnqueuedUtcTime - Copy.2"}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Split Column by Delimiter1",{{"EventEnqueuedUtcTime - Copy.1", type date}, {"EventEnqueuedUtcTime - Copy.2", type text}}),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Changed Type1",{{"EventEnqueuedUtcTime - Copy.2", type time}}),
+				    #"Replaced Errors" = Table.ReplaceErrorValues(#"Changed Type2", {{"EventProcessedUtcTime - Copy.2", #time(14, 51, 30)}}),
+				    #"Replaced Errors1" = Table.ReplaceErrorValues(#"Replaced Errors", {{"EventEnqueuedUtcTime - Copy.2", #time(14, 51, 30)}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Replaced Errors1",{{"EventProcessedUtcTime - Copy.1", "EventProcessedDate"}, {"EventProcessedUtcTime - Copy.2", "EventProcessedTime"}}),
+				    #"Removed Top Rows" = Table.Skip(#"Renamed Columns",1)
+				in
+				    #"Removed Top Rows"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

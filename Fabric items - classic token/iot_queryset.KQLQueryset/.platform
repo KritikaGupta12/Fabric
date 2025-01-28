@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "KQLQueryset",
+    "displayName": "iot_queryset",
+    "description": "iot_queryset"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "4ec846f6-6a5d-841f-4bbd-b879cba5859a"
+  }
+}

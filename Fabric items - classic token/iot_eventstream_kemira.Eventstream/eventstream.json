@@ -1,0 +1,268 @@
+{
+  "sources": [
+    {
+      "id": "52f60398-b056-4794-9c13-86130f5513ff",
+      "name": "AzureIoTHub",
+      "type": "AzureIoTHub",
+      "properties": {
+        "dataConnectionId": "193457ea-41fd-4e0b-bdb3-0f7132d47329",
+        "consumerGroupName": "$Default",
+        "inputSerialization": {
+          "type": "Json",
+          "properties": {
+            "encoding": "UTF8"
+          }
+        }
+      }
+    }
+  ],
+  "destinations": [
+    {
+      "id": "50ee1e43-c8f4-4845-8312-4b4b5f0391d5",
+      "name": "iot-kql-eventhouse",
+      "type": "Eventhouse",
+      "properties": {
+        "dataIngestionMode": "ProcessedIngestion",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "itemId": "d73a7a7d-c969-b495-4ca8-2d27046a98fe",
+        "databaseName": "iot_database",
+        "tableName": "rasptb",
+        "inputSerialization": {
+          "type": "Json",
+          "properties": {
+            "encoding": "UTF8"
+          }
+        }
+      },
+      "inputNodes": [
+        {
+          "name": "ManageFields"
+        }
+      ],
+      "inputSchemas": []
+    }
+  ],
+  "streams": [
+    {
+      "id": "0cf0106d-5076-4a1b-a145-ecd76b1b7af1",
+      "name": "iot_eventstream_kemira-stream",
+      "type": "DefaultStream",
+      "properties": {},
+      "inputNodes": [
+        {
+          "name": "AzureIoTHub"
+        }
+      ]
+    }
+  ],
+  "operators": [
+    {
+      "name": "ManageFields",
+      "type": "ManageFields",
+      "inputNodes": [
+        {
+          "name": "iot_eventstream_kemira-stream"
+        }
+      ],
+      "properties": {
+        "columns": [
+          {
+            "type": "Rename",
+            "properties": {
+              "column": {
+                "expressionType": "ColumnReference",
+                "node": null,
+                "columnName": "messageId",
+                "columnPathSegments": []
+              }
+            },
+            "alias": "messageId"
+          },
+          {
+            "type": "Rename",
+            "properties": {
+              "column": {
+                "expressionType": "ColumnReference",
+                "node": null,
+                "columnName": "EventProcessedUtcTime",
+                "columnPathSegments": []
+              }
+            },
+            "alias": "EventProcessedUtcTime"
+          },
+          {
+            "type": "Rename",
+            "properties": {
+              "column": {
+                "expressionType": "ColumnReference",
+                "node": null,
+                "columnName": "EventEnqueuedUtcTime",
+                "columnPathSegments": []
+              }
+            },
+            "alias": "EventEnqueuedUtcTime"
+          },
+          {
+            "type": "FunctionCall",
+            "properties": {
+              "functionName": "Round",
+              "arguments": [
+                {
+                  "expressionType": "ColumnReference",
+                  "node": null,
+                  "columnName": "temperature",
+                  "columnPathSegments": []
+                },
+                {
+                  "expressionType": "Literal",
+                  "dataType": "BigInt",
+                  "value": "2"
+                }
+              ]
+            },
+            "alias": "rounded_temp"
+          },
+          {
+            "type": "FunctionCall",
+            "properties": {
+              "functionName": "Round",
+              "arguments": [
+                {
+                  "expressionType": "ColumnReference",
+                  "node": null,
+                  "columnName": "humidity",
+                  "columnPathSegments": []
+                },
+                {
+                  "expressionType": "Literal",
+                  "dataType": "BigInt",
+                  "value": "2"
+                }
+              ]
+            },
+            "alias": "rounded_humidity"
+          },
+          {
+            "type": "Rename",
+            "properties": {
+              "column": {
+                "expressionType": "ColumnReference",
+                "node": null,
+                "columnName": "temperature",
+                "columnPathSegments": []
+              }
+            },
+            "alias": "temperature"
+          },
+          {
+            "type": "Rename",
+            "properties": {
+              "column": {
+                "expressionType": "ColumnReference",
+                "node": null,
+                "columnName": "humidity",
+                "columnPathSegments": []
+              }
+            },
+            "alias": "humidity"
+          }
+        ]
+      },
+      "inputSchemas": [
+        {
+          "name": "iot_eventstream_kemira-stream",
+          "schema": {
+            "columns": [
+              {
+                "name": "messageId",
+                "type": "BigInt",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "deviceId",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "temperature",
+                "type": "Float",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "humidity",
+                "type": "Float",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "EventProcessedUtcTime",
+                "type": "DateTime",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "PartitionId",
+                "type": "BigInt",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "EventEnqueuedUtcTime",
+                "type": "DateTime",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "IoTHub",
+                "type": "Record",
+                "fields": [
+                  {
+                    "name": "MessageId",
+                    "type": "Record",
+                    "fields": [],
+                    "items": null
+                  },
+                  {
+                    "name": "CorrelationId",
+                    "type": "Record",
+                    "fields": [],
+                    "items": null
+                  },
+                  {
+                    "name": "ConnectionDeviceId",
+                    "type": "Nvarchar(max)",
+                    "fields": null,
+                    "items": null
+                  },
+                  {
+                    "name": "ConnectionDeviceGenerationId",
+                    "type": "Nvarchar(max)",
+                    "fields": null,
+                    "items": null
+                  },
+                  {
+                    "name": "EnqueuedTime",
+                    "type": "DateTime",
+                    "fields": null,
+                    "items": null
+                  },
+                  {
+                    "name": "StreamId",
+                    "type": "Record",
+                    "fields": [],
+                    "items": null
+                  }
+                ],
+                "items": null
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "compatibilityLevel": "1.0"
+}

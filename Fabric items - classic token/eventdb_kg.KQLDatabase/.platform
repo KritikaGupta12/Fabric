@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "KQLDatabase",
+    "displayName": "eventdb_kg",
+    "description": "eventdb_kg"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "5954f3e1-4eca-857c-4396-b4248ee06720"
+  }
+}

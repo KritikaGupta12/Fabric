@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Eventhouse",
+    "displayName": "iot_eventhouse",
+    "description": "Data from IoT & Event hub"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "3e71f2eb-5c84-9bc2-4dfc-8559a819dfe8"
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "config": "{\"version\":\"5.59\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU10\",\"version\":\"5.60\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":0,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}],\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "pods": [
+    {
+      "boundSection": "7e570fa52c3874061a09",
+      "config": "{}",
+      "name": "e5ad3a544ca318d6341a"
+    }
+  ],
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY24SU10",
+            "path": "BaseThemes/CY24SU10.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{\"objects\":{\"pageRefresh\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"refreshType\":{\"expr\":{\"Literal\":{\"Value\":\"'APR'\"}}},\"duration\":{\"expr\":{\"Literal\":{\"Value\":\"'PT5M'\"}}}}}]}}",
+      "displayName": "Page 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "7e570fa52c3874061a09",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"2ba325b286d8ad02a960\",\"layouts\":[{\"id\":0,\"position\":{\"x\":35.04004866673426,\"y\":84.09611680016222,\"z\":1000,\"width\":175.2002433336713,\"height\":191.55226604481396,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"OilPrices.Date\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"o\",\"Entity\":\"OilPrices\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Date\"},\"Name\":\"OilPrices.Date\",\"NativeReferenceName\":\"Date\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Date\"}}}]},\"columnProperties\":{\"OilPrices.Date\":{\"formatString\":\"d\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}],\"slider\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"general\":[{\"properties\":{\"orientation\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}},\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"o\",\"Entity\":\"OilPrices\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Date\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"datetime'2024-12-09T00:00:00'\"}}]]}}}]}}}}],\"selection\":[{\"properties\":{\"selectAllCheckboxEnabled\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"header\":[{\"properties\":{\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"textSize\":{\"expr\":{\"Literal\":{\"Value\":\"14D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 191.55,
+          "width": 175.20,
+          "x": 35.04,
+          "y": 84.10,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"41c324959a50b0203029\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":4000,\"width\":1280.129777958025,\"height\":68.91209571124405,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"CRUDE OIL PRICES\",\"textStyle\":{\"fontWeight\":\"bold\",\"fontFamily\":\"Constantia\",\"fontSize\":\"32pt\",\"color\":\"#ffffff\"}}],\"horizontalTextAlignment\":\"center\"}]}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":9,\"Percent\":-0.25}}}}}}}],\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"dropShadow\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 68.91,
+          "width": 1280.13,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"602fd18952d6e3975317\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":309.52042988948597,\"z\":0,\"width\":916.8812734462131,\"height\":409.96856940079084,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"OilPrices.DateTime\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(OilPrices.Price)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"o\",\"Entity\":\"OilPrices\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"DateTime\"},\"Name\":\"OilPrices.DateTime\",\"NativeReferenceName\":\"DateTime\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Price\"}},\"Function\":1},\"Name\":\"Sum(OilPrices.Price)\",\"NativeReferenceName\":\"Average of Price\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"DateTime\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"valueAxis\":[{\"properties\":{\"labelPrecision\":{\"expr\":{\"Literal\":{\"Value\":\"1L\"}}},\"end\":{\"expr\":{\"Literal\":{\"Value\":\"6000D\"}}},\"titleText\":{\"expr\":{\"Literal\":{\"Value\":\"'Price'\"}}}}}],\"categoryAxis\":[{\"properties\":{\"axisType\":{\"expr\":{\"Literal\":{\"Value\":\"'Scalar'\"}}},\"titleText\":{\"expr\":{\"Literal\":{\"Value\":\"'Time'\"}}}}}],\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"lineStyles\":[{\"properties\":{\"areaShow\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Price Range'\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}},\"heading\":{\"expr\":{\"Literal\":{\"Value\":\"'Heading2'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 409.97,
+          "width": 916.88,
+          "x": 0.00,
+          "y": 309.52,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"8c4f6cb699b3ba1c57eb\",\"layouts\":[{\"id\":0,\"position\":{\"x\":916.8812734462131,\"y\":309.52042988948597,\"z\":6000,\"width\":339.8884720673223,\"height\":409.96856940079084,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"OilPrices.Date\"},{\"queryRef\":\"OilPrices.DateTime\"},{\"queryRef\":\"Sum(OilPrices.Price)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"o\",\"Entity\":\"OilPrices\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"DateTime\"},\"Name\":\"OilPrices.DateTime\",\"NativeReferenceName\":\"Time\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Price\"},\"Name\":\"Sum(OilPrices.Price)\",\"NativeReferenceName\":\"Price\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Date\"},\"Name\":\"OilPrices.Date\",\"NativeReferenceName\":\"Date\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"DateTime\"}}}]},\"columnProperties\":{\"OilPrices.DateTime\":{\"formatString\":\"T\",\"displayName\":\"Time\"},\"OilPrices.Date\":{\"formatString\":\"d\"},\"Sum(OilPrices.Price)\":{\"formatString\":\"#,0.00\"}},\"drillFilterOtherVisuals\":true,\"objects\":{\"columnHeaders\":[{\"properties\":{\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Left'\"}}},\"autoSizeColumnWidth\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"backColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":9,\"Percent\":0}}}}}}}],\"grid\":[{\"properties\":{\"imageHeight\":{\"expr\":{\"Literal\":{\"Value\":\"81D\"}}}}}],\"values\":[{\"properties\":{\"urlIcon\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"columnFormatting\":[{\"properties\":{\"styleHeader\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"styleTotal\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}},\"selector\":{\"metadata\":\"OilPrices.DateTime\"}}],\"total\":[{\"properties\":{\"totals\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"columnWidth\":[{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"109.38967013036168D\"}}}},\"selector\":{\"metadata\":\"OilPrices.Date\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"130.89611286207415D\"}}}},\"selector\":{\"metadata\":\"OilPrices.DateTime\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"60D\"}}}},\"selector\":{\"metadata\":\"Sum(OilPrices.Price)\"}}]},\"vcObjects\":{\"stylePreset\":[{\"properties\":{\"name\":{\"expr\":{\"Literal\":{\"Value\":\"'Sparse'\"}}}}}],\"visualHeader\":[{\"properties\":{\"foreground\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}}}]}}}",
+          "filters": "[]",
+          "height": 409.97,
+          "width": 339.89,
+          "x": 916.88,
+          "y": 309.52,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"a69d683c213e82c4502d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":640.0648889790125,\"y\":68.91209571124405,\"z\":2000,\"width\":309.52042988948597,\"height\":144.83220115583495,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(OilPrices.Price)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"o\",\"Entity\":\"OilPrices\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Price\"}},\"Function\":3},\"Name\":\"Sum(OilPrices.Price)\",\"NativeReferenceName\":\"Min of Price\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Price\"}},\"Function\":3}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"labelDisplayUnits\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#43C82F'\"}}}}}}}]}}}",
+          "filters": "[]",
+          "height": 144.83,
+          "width": 309.52,
+          "x": 640.06,
+          "y": 68.91,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"e01e6dc9301536a85296\",\"layouts\":[{\"id\":0,\"position\":{\"x\":970.7063197026023,\"y\":68.99628252788105,\"z\":3000,\"width\":309.29368029739777,\"height\":145.13011152416357,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(OilPrices.Price)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"o\",\"Entity\":\"OilPrices\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Price\"}},\"Function\":4},\"Name\":\"Sum(OilPrices.Price)\",\"NativeReferenceName\":\"Max of Price\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Price\"}},\"Function\":4}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"labelDisplayUnits\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":9,\"Percent\":0}}}}}}}]}}}",
+          "filters": "[]",
+          "height": 145.13,
+          "width": 309.29,
+          "x": 970.71,
+          "y": 69.00,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"e55eb0c3a654ac60a515\",\"layouts\":[{\"id\":0,\"position\":{\"x\":328.20845584507754,\"y\":84.09611680016222,\"z\":5000,\"width\":261.6323633782825,\"height\":115.63216060022306,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(OilPrices.Price)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"o\",\"Entity\":\"OilPrices\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Price\"}},\"Function\":1},\"Name\":\"Sum(OilPrices.Price)\",\"NativeReferenceName\":\"Average of Price\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"o\"}},\"Property\":\"Price\"}},\"Function\":1}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"labelDisplayUnits\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#22CAD3'\"}}}}}}}]}}}",
+          "filters": "[]",
+          "height": 115.63,
+          "width": 261.63,
+          "x": 328.21,
+          "y": 84.10,
+          "z": 5000.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}
