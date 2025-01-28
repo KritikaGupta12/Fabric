@@ -126,7 +126,7 @@ def parse_element(element, item) :
 
 # CELL ********************
 
-# Recursive function to parse XML
+# Recursive function new to parse XML
 def parse_element(element, data_list, parent_tag=""):
     item = {}
     for child in element:
