@@ -3,7 +3,6 @@
   "datasetReference": {
     "byPath": {
       "path": "../power bi anamoly.SemanticModel"
-    },
-    "byConnection": null
+    }
   }
 }

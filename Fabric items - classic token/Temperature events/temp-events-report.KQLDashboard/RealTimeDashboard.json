@@ -1,0 +1,42 @@
+{
+  "schema_version": "55",
+  "title": "temp-events-report",
+  "tiles": [],
+  "baseQueries": [],
+  "parameters": [
+    {
+      "kind": "duration",
+      "id": "c49b050c-ceda-4e79-8c2f-bc1c69f41acc",
+      "displayName": "Time range",
+      "description": "",
+      "beginVariableName": "_startTime",
+      "endVariableName": "_endTime",
+      "defaultValue": {
+        "kind": "dynamic",
+        "count": 1,
+        "unit": "hours"
+      },
+      "showOnPages": {
+        "kind": "all"
+      }
+    }
+  ],
+  "dataSources": [
+    {
+      "kind": "kusto-trident",
+      "scopeId": "kusto-trident",
+      "clusterUri": "",
+      "database": "5954f3e1-4eca-857c-4396-b4248ee06720",
+      "name": "eventdb_kg",
+      "id": "0fd56b10-1495-41e8-b8fe-3ffac22c4b23",
+      "workspace": "00000000-0000-0000-0000-000000000000"
+    }
+  ],
+  "pages": [
+    {
+      "name": "Page 1",
+      "id": "1da358b0-26b4-4dbd-a76f-4f6b7d873e0b"
+    }
+  ],
+  "queries": []
+}
